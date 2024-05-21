@@ -1,11 +1,11 @@
-name: CI
+name: Repro
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
