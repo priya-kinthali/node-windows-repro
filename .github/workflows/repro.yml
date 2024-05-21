@@ -16,10 +16,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - run: cp cli/package.json package.json
+      - run: cp cli/package-lock.json package-lock.json
       - name: Setup Node (prism)
         uses: actions/setup-node@v4
         with:
           cache: npm
-          cache-dependency-path: cli/package-lock.json
           node-version-file: '.tool-versions'
       - run: npm install
