@@ -1,0 +1,23 @@
+name: CI
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  repro:
+    name: 'Repro: node permissions error'
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node (prism)
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version-file: '.tool-versions'
+      - run: npm install
