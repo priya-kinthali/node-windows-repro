@@ -20,5 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: npm
+          cache-dependency-path: cli/package-lock.json
           node-version-file: '.tool-versions'
       - run: npm install
