@@ -9,6 +9,7 @@ on:
     branches:
       - main
 
+jobs:
   repro:
     name: 'Repro: node permissions error'
     runs-on: windows-latest
